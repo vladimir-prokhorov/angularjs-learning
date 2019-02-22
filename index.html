@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="taskListApp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="libraries/jquery/jquery-3.3.1.min.js"></script>
+	<script src="libraries/angularjs/angular.min.js"></script>
+	<script src="libraries/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="libraries/bootstrap-3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libraries/bootstrap-3.3.7/css/bootstrap-theme.min.css">
+
+	<title>Программа гармоничного развития личности</title>
+
+	<script>
+		var taskListApp = angular.module("taskListApp", []);
+
+		taskListApp.controller("TaskListCtrl", function ($scope) {
+			$scope.tasks = [{
+					id: 20183401,
+					category: "Wealth",
+					keyword: "Купить",
+					description: "Краска для газовой трубы и люков.",
+					priority: "Medium",
+					terms: 1,
+					active: true
+				},
+				{
+					id: 20183402,
+					category: "Wealth",
+					keyword: "Купить",
+					description: "Наждачная лента для шлифовки забора.",
+					priority: "High",
+					terms: 1,
+					active: true
+				},
+				{
+					id: 20183403,
+					category: "Wealth",
+					keyword: "Сделать",
+					description: "Зачистить и покрыть лаком забор.",
+					priority: "High",
+					terms: 4,
+					active: true
+				},
+				{
+					id: 20183404,
+					category: "Wealth",
+					keyword: "Сделать",
+					description: "Покрасить газовую трубу и люки.",
+					priority: "Medium",
+					terms: 1,
+					active: true
+				},
+				{
+					id: 20183405,
+					category: "Wealth",
+					keyword: "Контроль",
+					description: "Осмотр водопроводных шлангов.",
+					priority: "Low",
+					terms: 1,
+					active: true
+				},
+				{
+					id: 20183406,
+					category: "Wealth",
+					keyword: "Контроль",
+					description: "Осмотр чердака и кровли.",
+					priority: "Low",
+					terms: 1,
+					active: true
+				},
+				{
+					id: 20183407,
+					category: "Children",
+					keyword: "Купить",
+					description: "Сделать лестницу безопасной для ребенка.",
+					priority: "Medium",
+					terms: 2,
+					active: true
+				},
+				{
+					id: 20183408,
+					category: "Health",
+					keyword: "Посетить",
+					description: "Вылечить зубы.",
+					priority: "Low",
+					terms: 1,
+					active: true
+				},
+				{
+					id: 20183409,
+					category: "Health",
+					keyword: "Посетить",
+					description: "Сделать флюорографию.",
+					priority: "Low",
+					terms: 1,
+					active: true
+				},
+			];
+		});
+	</script>
+</head>
+
+<body ng-controller="TaskListCtrl">
+	<div class="container">
+		<table class="table table-hover table-condensed table-striped">
+			<caption>
+				<h2>Active tasks {{tasks.length}}</h2>
+			</caption>
+			<thead>
+				<tr>
+					<th class="col-xs-1">ID</th>
+					<th class="col-xs-1">Category</th>
+					<th class="col-xs-1">Task</th>
+					<th class="col-xs-6">Description</th>
+					<th class="col-xs-1">Priority</th>
+					<th class="col-xs-1">Terms</th>
+					<th class="col-xs-1">Edit/Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="task in tasks track by $index">
+					<td>{{task.id}}</td>
+					<td>{{task.category}}</td>
+					<td>{{task.keyword}}</td>
+					<td>{{task.description}}</td>
+					<td>{{task.priority}}</td>
+					<td>{{task.terms | number:2}}</td>
+					<td>
+						<div class="btn-group btn-group-justified">
+							<a href="#" title="Edit task" class="btn btn-default glyphicon glyphicon-edit"></a>
+							<a href="#" title="Delete task" class="btn btn-default glyphicon glyphicon-trash"></a>
+							<!--
+							<a href="#" title="Delete task" class="btn btn-default glyphicon glyphicon-ok"></a>
+							<a href="#" title="Delete task" class="btn btn-default glyphicon glyphicon-remove"></a>
+							-->
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
